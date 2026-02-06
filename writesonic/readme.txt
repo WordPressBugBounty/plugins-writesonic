@@ -3,8 +3,8 @@ Contributors: Writesonic
 Donate link: https://writesonic.com/
 Tags: writesonic, AI writing, AI copywriting, AI writer
 Requires at least: 4.7
-Tested up to: 6.3.2
-Stable tag: 1.0.4
+Tested up to: 6.8.3
+Stable tag: 1.0.5
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -42,6 +42,11 @@ Yes, this plugin is compatible with all custom domain wordpress.org sites.
 2. ![Writesonic Authorized](assets\screenshot-2.png)
 
 == Changelog ==
+
+= 1.0.5 =
+* Confirmed compatibility with WordPress 6.8.3
+* Code review and security audit completed
+* No functional changes - stability update
 
 = 1.0.4 =
 * CORS issue fixed.

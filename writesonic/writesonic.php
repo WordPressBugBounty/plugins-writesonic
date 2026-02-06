@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Writesonic
  * Description: Writesonic WordPress plugin
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: <a href="https://writesonic.com/">Writesonic</a>
  * Author URI: https://writesonic.com/
  * Text Domain: writesonic

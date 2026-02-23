@@ -3,10 +3,14 @@
 /**
  * Plugin Name: Writesonic
  * Description: Writesonic WordPress plugin
- * Version: 1.0.5
+ * Version: 1.0.6
  * Author: <a href="https://writesonic.com/">Writesonic</a>
  * Author URI: https://writesonic.com/
  * Text Domain: writesonic
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 if (!defined('ABSPATH')) {

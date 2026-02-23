@@ -7,28 +7,36 @@
 $domain = home_url();
 
 if (isset($_POST['connect'])) {
-    //Get current user email
+    if (!current_user_can('manage_options') ||
+        !isset($_POST['writesonic_nonce']) ||
+        !wp_verify_nonce($_POST['writesonic_nonce'], 'writesonic_settings_action')) {
+        wp_die(__('Security check failed.', 'writesonic'));
+    }
+
     $user       = wp_get_current_user();
     $user_email = $user->user_email;
-    //Generate hash
     $user_token = bin2hex(openssl_random_pseudo_bytes(16));
-    //Get stored passwords
     $writesonic_tokens = get_option(WRITESONIC_API_KEY_OPTION);
 
-    if (is_array($writesonic_passwords)) {
+    if (is_array($writesonic_tokens)) {
         $writesonic_tokens[$user_email] = $user_token;
     } else {
         $writesonic_tokens = array(
             $user_email => $user_token
         );
     }
-    //Update or add new passwords
+
     update_option(WRITESONIC_API_KEY_OPTION, $writesonic_tokens);
-    //Create writesonic redirect url
     $redirect_url = sprintf('%s?domain=%s&user=%s&token=%s', WRITESONIC_CONNECT_URL, $domain, $user_email, $user_token);
 }
 
 if (isset($_POST['disconnect']) && isset($_POST['token'])) {
+    if (!current_user_can('manage_options') ||
+        !isset($_POST['writesonic_nonce']) ||
+        !wp_verify_nonce($_POST['writesonic_nonce'], 'writesonic_settings_action')) {
+        wp_die(__('Security check failed.', 'writesonic'));
+    }
+
     $writesonic_tokens = get_option(WRITESONIC_API_KEY_OPTION, array());
     $token            = sanitize_text_field($_POST['token']);
     $email            = array_search($token, $writesonic_tokens);
@@ -67,6 +75,7 @@ if (is_array($writesonic_tokens) && array_key_exists($current_user->user_email, 
         <div class="form-text"><span class="bold"><?php _e( 'Waiting for your authorization', 'writesonic' ); ?></span></div>
     <?php endif; ?>
     <form action="" method="post" class="writesonic">
+        <?php wp_nonce_field('writesonic_settings_action', 'writesonic_nonce'); ?>
         <?php if (!$user_connected) : ?>
             <input type="hidden" name="connect" value="true">
             <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php echo esc_attr(__('Connect', 'writesonic')); ?>">

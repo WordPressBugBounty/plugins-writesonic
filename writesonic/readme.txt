@@ -3,8 +3,8 @@ Contributors: Writesonic
 Donate link: https://writesonic.com/
 Tags: writesonic, AI writing, AI copywriting, AI writer
 Requires at least: 4.7
-Tested up to: 6.8.3
-Stable tag: 1.0.5
+Tested up to: 6.9.1
+Stable tag: 1.0.6
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -35,6 +35,13 @@ As long as you have a Writesonic account, this plugin is 100% free to use and le
 
 Yes, this plugin is compatible with all custom domain wordpress.org sites.
 
+= Can I install this plugin on multiple sites? =
+
+Yes. The plugin is licensed under GPLv2, so you can install it on as many WordPress sites as you need, including staging and production environments.
+
+= Is this plugin actively maintained? =
+
+Yes. Writesonic actively maintains this plugin with security patches and feature updates. If you encounter any issues, please reach out via the WordPress.org support forum.
 
 == Screenshots ==
 
@@ -43,10 +50,13 @@ Yes, this plugin is compatible with all custom domain wordpress.org sites.
 
 == Changelog ==
 
+= 1.0.6 =
+* Security: Fixed Cross-Site Request Forgery (CSRF) vulnerability (CVE-2025-53262, CVSS 5.4 Medium).
+* Added nonce verification and capability checks to settings page form handlers.
+* Added automated release pipeline with WordPress.org SVN deployment.
+
 = 1.0.5 =
-* Confirmed compatibility with WordPress 6.8.3
-* Code review and security audit completed
-* No functional changes - stability update
+* Internal: Added automated semantic-release and SVN deployment pipeline.
 
 = 1.0.4 =
 * CORS issue fixed.
@@ -69,5 +79,8 @@ Yes, this plugin is compatible with all custom domain wordpress.org sites.
 
 == Upgrade Notice ==
 
+= 1.0.6 =
+Security update. Fixes CSRF vulnerability (CVE-2025-53262). All users should update immediately.
+
 = 1.0 =
-Writesonic Wordpress plugin.
+Writesonic WordPress plugin.

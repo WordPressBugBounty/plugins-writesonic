@@ -1,11 +1,11 @@
 === Writesonic ===
 Contributors: Writesonic
 Donate link: https://writesonic.com/
-Tags: writesonic, AI writing, AI copywriting, AI writer
-Requires at least: 4.7
-Tested up to: 6.9.1
-Stable tag: 1.0.6
-Requires PHP: 7.0
+Tags: writesonic, AI writing, AI copywriting, AI writer, analytics
+Requires at least: 6.0
+Tested up to: 7.0.3
+Stable tag: 2.0.0
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,10 +45,17 @@ Yes. Writesonic actively maintains this plugin with security patches and feature
 
 == Screenshots ==
 
-1. ![Connect to Writesonic](assets\screenshot-1.png)
-2. ![Writesonic Authorized](assets\screenshot-2.png)
+![Connect your website](assets/screenshot-4.png)
+![Authorize on writesonic](assets/screenshot-5.png)
+![Plugin is connected](assets/screenshot-6.png)
 
 == Changelog ==
+
+= 2.0.0 =
+* The Writesonic AI Analytics plugin is now built into this plugin — one plugin, one connection.
+* If the standalone Writesonic AI Analytics plugin is installed, its API key is carried over automatically and analytics pauses until you remove it, so traffic is never counted twice.
+* Requires WordPress 6.0 and PHP 7.4.
+* Wordpress version support upto 7.0.3
 
 = 1.0.6 =
 * Security: Fixed Cross-Site Request Forgery (CSRF) vulnerability (CVE-2025-53262, CVSS 5.4 Medium).
@@ -78,6 +85,9 @@ Yes. Writesonic actively maintains this plugin with security patches and feature
 * Publish content from Writesonic to WordPress.
 
 == Upgrade Notice ==
+
+= 2.0.0 =
+AI Analytics is now part of this plugin. If you use the standalone Writesonic AI Analytics plugin, your API key is copied over automatically — do not deactivate that plugin before updating, as it deletes its own key on deactivation. Analytics stays off until you enable it.
 
 = 1.0.6 =
 Security update. Fixes CSRF vulnerability (CVE-2025-53262). All users should update immediately.
